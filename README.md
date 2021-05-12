@@ -1,0 +1,1 @@
+# M2TR-Multi-modal-Multi-scale-Transformers-for-Deepfake-Detection
