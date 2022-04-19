@@ -1,0 +1,45 @@
+NUM_GPUS: 8
+TRAIN:
+  ENABLE: True
+  MAX_EPOCH: 20
+  CHECKPOINT_PERIOD: 1
+  CHECKPOINT_EPOCH_RESET: True
+TEST:
+  ENABLE: True
+DATASET:
+  DATASET_NAME: FFDF
+  ROOT_DIR: /share/test/ouyang/FF++/face
+  TRAIN_INFO_TXT: '/share/test/ouyang/FF++/splits/train_face_c23.txt'
+  VAL_INFO_TXT: '/share/test/ouyang/FF++/splits/val_face_c23.txt'
+  TEST_INFO_TXT: '/share/test/ouyang/FF++/splits/test_face_c23.txt'
+  IMG_SIZE: 320
+  SCALE_RATE: 1.0
+  ROTATE_ANGLE: 10
+  CUTOUT_H: 10
+  CUTOUT_W: 10
+  COMPRESSION_LOW: 65
+  COMPRESSION_HIGH: 80
+DATALOADER:
+  BATCH_SIZE: 8
+  NUM_WORKERS: 24
+LOSS:
+  LOSS_FUN: FocalLoss
+  LOSS_WEIGHT: 1
+  logits: True
+MODEL:
+  MODEL_NAME: M2TR
+  PRETRAINED: 'imagenet'
+  ESCAPE: ''
+  IMG_SIZE: 320
+  BACKBONE: efficientnet-b4
+  DEPTH: 4
+  TEXTURE_LAYER: b2
+  FEATURE_LAYER: final
+  NUM_CLASSES: 2
+  DROP_RATIO: 0.5
+  HAS_DECODER: False
+OPTIMIZER:
+  OPTIMIZER_METHOD: sgd
+  BASE_LR: 0.0005
+  EPS: 0.00000001
+  MOMENTUM: 0.9
