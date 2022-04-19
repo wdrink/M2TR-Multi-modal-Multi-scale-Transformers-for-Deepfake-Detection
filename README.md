@@ -15,7 +15,7 @@ This is the official pytorch implementation of [Multi-modal Multi-scale for Deep
 The baseline models on three versions of [FF-DF](https://github.com/ondyari/FaceForensics) dataset and [Celeb-DF](https://github.com/yuezunli/celeb-deepfakeforensics) are provided.
 
 | Dataset | Accuracy | model |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | 
 | FF++ (Raw) | 99.50 | [FF-RAW](https://drive.google.com/file/d/1_HaPE6r7Zzof2mmLmmc4fbIbqyWs17S0/view?usp=sharing) |
 | FF++ (C23) | 97.93 | [FF-C23](https://drive.google.com/file/d/1XRIllA6p5YnITztl1burwcr5l7LAcpqv/view?usp=sharing) 
 | FF++ (C40) | 92.89 | [FF-C40](https://drive.google.com/file/d/1xhclIjoh8GkVvoVefjDY-itdaV0VaMxY/view?usp=sharing) |
