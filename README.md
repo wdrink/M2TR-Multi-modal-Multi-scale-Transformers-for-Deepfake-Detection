@@ -29,7 +29,7 @@ python run.py --cfg ./configs/m2tr.yaml
 
 ## License
 
-This project is released under the MIT license.
+This project is released under the [MIT license](https://opensource.org/licenses/MIT).
 
 
 ## Citations
