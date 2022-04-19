@@ -6,7 +6,7 @@ This is the official pytorch implementation of [Multi-modal Multi-scale for Deep
 
 
 <p align="center">
- <img width="100%" src="./imgs/network.png" />
+ <img width="75%" src="./imgs/network.png" />
 </p>
 
 
