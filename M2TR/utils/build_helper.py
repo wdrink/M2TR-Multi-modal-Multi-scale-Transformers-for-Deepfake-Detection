@@ -1,6 +1,9 @@
 import torch
 from torch.utils.data import DataLoader
 
+
+import M2TR.models 
+import M2TR.datasets
 import M2TR.utils.distributed as du
 import M2TR.utils.logging as logging
 from M2TR.utils.registries import (
