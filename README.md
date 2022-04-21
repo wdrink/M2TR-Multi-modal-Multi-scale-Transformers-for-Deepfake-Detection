@@ -24,7 +24,7 @@ The baseline models on three versions of [FF-DF](https://github.com/ondyari/Face
 ## Training and Evaluation
 
 ```
-python run.py --cfg ./configs/m2tr.yaml
+python run.py --cfg m2tr.yaml
 ```
 
 ## License
