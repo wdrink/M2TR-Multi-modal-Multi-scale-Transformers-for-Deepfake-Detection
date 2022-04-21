@@ -1,0 +1,95 @@
+NUM_GPUS: 4
+NUM_SHARDS: 1
+SHARD_ID: 0
+DIST_BACKEND: nccl
+RNG_SEED: 0
+LOG_FILE_PATH: './logs'
+INIT_METHOD: 'tcp://localhost:9999'
+AMP_ENABLE: False
+TRAIN:
+  ENABLE: True
+  MAX_EPOCH: 20
+  EVAL_PERIOD: 1
+  CHECKPOINT_PERIOD: 5
+  CHECKPOINT_EPOCH_RESET: FALSE
+  CHECKPOINT_LOAD_PATH: ''
+  CHECKPOINT_SAVE_PATH: '.'
+TEST:
+  ENABLE: True
+  CHECKPOINT_TEST_PATH: ''
+DATASET:
+  DATASET_NAME: FFDF
+  ROOT_DIR: /share/test/ouyang/FF++/face
+  TRAIN_INFO_TXT: '/share/test/ouyang/FF++/splits/train_face_raw.txt'
+  VAL_INFO_TXT: '/share/test/ouyang/FF++/splits/test_face_raw.txt'
+  TEST_INFO_TXT: '/share/test/ouyang/FF++/splits/test_face_raw.txt'
+  IMG_SIZE: 380
+  SCALE_RATE: 1.0
+  TRAIN_AUGMENTATIONS:
+    COMPOSE:
+      [
+        [
+          ChannelDropout,
+          ToGray
+        ],
+        [
+          ColorJitter,
+          RandomBrightnessContrast,
+          HueSaturationValue,
+          CLAHE,
+          RandomGamma,
+          Sharpen
+        ],
+        [
+          Blur,
+          MotionBlur,
+          GaussianBlur,
+          GlassBlur
+        ],
+        GaussNoise,
+        HorizontalFlip,
+        Rotate,
+        [
+          RandomFog,
+          RandomRain,
+          RandomSnow,
+          RandomSunFlare,
+          RandomToneCurve
+        ],
+        CoarseDropout,
+        ImageCompression,
+        Normalize
+      ]
+    ROTATE_PARAMS: [10]
+    COARSEDROPOUT_PARAMS: [10, 10]
+    IMAGECOMPRESSION_PARAMS: [65, 80]
+    NORMALIZE_PARAMS: [[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]]
+  TEST_AUGMENTATIONS:
+    COMPOSE: [Resize, Normalize]
+    NORMALIZE_PARAMS: [[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]]
+DATALOADER:
+  BATCH_SIZE: 16
+  NUM_WORKERS: 8
+  PIN_MEM: True
+OPTIMIZER:
+  OPTIMIZER_METHOD: adamw
+  BASE_LR: 0.001
+  ADAM_BETAS: [0.9, 0.999]
+  EPS: 0.00000001
+  WEIGHT_DECAY: 0.01
+  AMSGRAD: False
+SCHEDULER:
+  LR_NOISE_PCT: 0.67
+  LR_NOISE_STD: 1.0
+  SEED: 42
+  LR_CYCLE_MUL: 1.0
+  LR_CYCLE_DECAY: 0.1
+  LR_CYCLE_LIMIT: 1
+  SCHEDULER_TYPE: cosine
+  MIN_LR: 0.000001
+  WARMUP_LR: 0
+  WARMUP_EPOCHS: 0
+  COOLDOWN_EPOCHS: 10
+  LR_K_DECAY: 1.0
+  SCHEDULER_STEP: 5
+  SCHEDULER_GAMMA: 0.5
