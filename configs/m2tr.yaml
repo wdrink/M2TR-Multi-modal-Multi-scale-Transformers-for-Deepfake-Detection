@@ -8,12 +8,12 @@ TEST:
   ENABLE: True
 DATASET:
   DATASET_NAME: FFDF
-  ROOT_DIR: /share/test/ouyang/FF++/face
-  TRAIN_INFO_TXT: '/share/test/ouyang/FF++/splits/train_face_c23.txt'
-  VAL_INFO_TXT: '/share/test/ouyang/FF++/splits/val_face_c23.txt'
-  TEST_INFO_TXT: '/share/test/ouyang/FF++/splits/test_face_c23.txt'
+  ROOT_DIR: path/to/your/dataset
+  TRAIN_INFO_TXT: 'path/to/your/train.txt'
+  VAL_INFO_TXT: 'path/to/your/val.txt'
+  TEST_INFO_TXT: 'path/to/your/test.txt'
   IMG_SIZE: 320
-  SCALE_RATE: 1.0
+  SCALE_RATE: 8/7
   ROTATE_ANGLE: 10
   CUTOUT_H: 10
   CUTOUT_W: 10
