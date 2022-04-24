@@ -97,7 +97,7 @@ def get_image_from_path(img_path, mask_path, mode, dataset_cfg):
         dataset_cfg,
     )
     if mode == 'train':
-        crop = ResizeRandomCrop(img_size=img_size, scale_rate=scale_rate, p=-1)
+        crop = ResizeRandomCrop(img_size=img_size, scale_rate=scale_rate)
         img, mask = crop(image=img, mask=mask)
 
         img = np.asarray(img)
